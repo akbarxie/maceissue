@@ -1,0 +1,22 @@
+library_name: test_deconv
+target_abis: [armeabi-v7a, arm64-v8a]
+build_type: code
+model_graph_format: file
+model_data_format: file
+models:
+  test_deconv:
+    platform: tensorflow
+    model_file_path: /home/kevin/Documents/mace-0.8.1/srcModels/test_deconv/test_deconv.pb
+    model_sha256_checksum: 278fe223121f4e0d9f6689d1343a510f1d82687329271a3d2c3399eb747d2270
+    subgraphs:
+      - input_tensors: 
+          - input
+        input_shapes:
+          - 1,720,1024,1
+        output_tensors:
+          - test_deconv/deconv/Relu
+        output_shapes:
+          - 1,1440,2056,1
+    runtime: cpu+gpu
+    winograd: 2
+
